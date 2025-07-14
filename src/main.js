@@ -1,7 +1,11 @@
 import express from 'express'
-import usersRoutes from './routes/users.route.js';
 import Database from './db.js'
 import cors from 'cors'
+
+import usersRoutes from './routes/users.route.js';
+import essentialsRoutes from './routes/essentials.route.js';
+import randomsRoutes from './routes/randoms.route.js';
+import magasinsRoutes from './routes/magasins.route.js';
 
 
 async function startApp() {
@@ -16,6 +20,9 @@ async function startApp() {
     );
 
     app.use('/users', usersRoutes);
+    app.use('/essentials', essentialsRoutes);
+    app.use('/randoms', randomsRoutes);
+    app.use('/magasins', magasinsRoutes);
 
     console.log('FACTURE SERVER STARTING...');
 
