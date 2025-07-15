@@ -73,7 +73,7 @@ class EssentialsController {
             const [result] = await Database.connection.query(
                 `
       UPDATE essentials 
-      SET marque = ?, libelle = ?, qtyCmd = ?, tva = ?, prixUnit = ?, prixRemise = ?
+      SET marque = ?, libelle = ?, qtyCmd = ?, tva = ?, prixUnit = ?, prixRemise = ?, active = ?
       WHERE code = ?
       `,
                 [
@@ -83,6 +83,7 @@ class EssentialsController {
                     updatedData.tva,
                     updatedData.prixUnit,
                     updatedData.prixRemise,
+                    updatedData.active,
                     code
                 ]
             );
