@@ -1,0 +1,18 @@
+[Unit]
+Description=Facture Backend
+After=network.target
+
+[Service]
+Environment=NODE_ENV=production
+Environment=HOST=127.0.0.1
+Environment=USER=root
+Environment=DATABASE=facture
+User=louis
+Group=louis
+Type=simple
+ExecStart=/home/louis/.nvm/versions/node/v20.11.0/bin/node /home/louis/Documents/facture-backend/src/main.js
+Restart=on-failure
+RestartSec=10s
+
+[Install]
+WantedBy=multi-user.target
