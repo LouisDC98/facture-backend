@@ -19,7 +19,7 @@ async function startApp() {
         })
     );
 
-    app.use('/users', usersRoutes);
+    app.use('/profiles', usersRoutes);
     app.use('/essentials', essentialsRoutes);
     app.use('/randoms', randomsRoutes);
     app.use('/magasins', magasinsRoutes);
