@@ -13,6 +13,7 @@ class Database {
             host: process.env.HOST,
             user: process.env.USER,
             database: process.env.DATABASE,
+            port: process.env.PORT,
         });
 
         Database.connection =  connection;
