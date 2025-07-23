@@ -63,8 +63,9 @@ class UsersController {
                 clientID,
                 cardNumber,
                 magasinID,
-                ownerID
-            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+                ownerID,
+                gender
+            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?)`,
         [
           body?.firstName,
           body?.lastName,
@@ -75,7 +76,8 @@ class UsersController {
           body?.clientID,
           body?.cardNumber,
           body?.magasinID,
-          body?.ownerID
+          body?.ownerID,
+          body?.gender
         ]
       );
 
@@ -94,7 +96,7 @@ class UsersController {
     try {
       const [result] = await Database.connection.query(
         `UPDATE profiles 
-      SET firstName = ?, lastName = ?, adresse = ?, city = ?, codePostal = ?, country = ?, cardNumber = ?, magasinID = ?, ownerID = ?
+      SET firstName = ?, lastName = ?, adresse = ?, city = ?, codePostal = ?, country = ?, cardNumber = ?, magasinID = ?, ownerID = ?, gender = ?
       WHERE profileID = ?
       `,
         [
@@ -107,6 +109,7 @@ class UsersController {
           updatedData?.cardNumber,
           updatedData?.magasinID,
           updatedData?.ownerID,
+          updatedData?.gender,
           profileID
         ]
       );
