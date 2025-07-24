@@ -22,7 +22,7 @@ async function startApp() {
     app.use('/profiles', usersRoutes);
     app.use('/essentials', essentialsRoutes);
     app.use('/randoms', randomsRoutes);
-    app.use('/magasins', magasinsRoutes);
+    app.use('/stores', magasinsRoutes);
 
     console.log('FACTURE SERVER STARTING...');
 
