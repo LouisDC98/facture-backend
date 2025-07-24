@@ -89,7 +89,6 @@ class UsersController {
   }
 
   static async updateProfile(req, res) {
-    console.log('back')
     const profileID = req.params.id;
     const updatedData = req.body;
 
