@@ -6,7 +6,7 @@ import usersRoutes from './routes/users.route.js';
 import essentialsRoutes from './routes/essentials.route.js';
 import randomsRoutes from './routes/randoms.route.js';
 import magasinsRoutes from './routes/magasins.route.js';
-
+import picturesRoutes from './routes/pictures.route.js';
 
 async function startApp() {
     const app = express();
@@ -23,6 +23,7 @@ async function startApp() {
     app.use('/essentials', essentialsRoutes);
     app.use('/randoms', randomsRoutes);
     app.use('/stores', magasinsRoutes);
+    app.use('/pictures', picturesRoutes);
 
     console.log('FACTURE SERVER STARTING...');
 
