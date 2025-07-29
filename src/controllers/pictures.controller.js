@@ -16,11 +16,13 @@ class PicturesController {
 
     static async getById(req, res) {
         const id = req.params.id;
-
+        const multiple = req.query.multiple === 'true';
         try {
-            const [results] = await Database.connection.query(
-                'SELECT * FROM `pictures` WHERE code = ?', [id]
-            );
+            const query = multiple
+                ? 'SELECT * FROM `pictures` WHERE code = ?'
+                : 'SELECT * FROM `pictures` WHERE code = ? ORDER BY RAND() LIMIT 1';
+
+            const [results] = await Database.connection.query(query, [id]);
 
             if (results.length === 0) {
                 return res.status(404).json({ message: 'Image non trouvée' });
@@ -30,8 +32,7 @@ class PicturesController {
                 ...row,
                 _data: row.data.toString('base64')
             }));
-
-            res.status(200).json(images);
+            res.status(200).json(multiple ? images : images[0]);
         } catch (error) {
             res.status(500).json({ type: 'Erreur', message: error.message });
         }
